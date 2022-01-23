@@ -1,0 +1,23 @@
+{
+  "name": "symmetric-registry-keeper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diwu1989/symmetric-registry-keeper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diwu1989/symmetric-registry-keeper/issues"
+  },
+  "homepage": "https://github.com/diwu1989/symmetric-registry-keeper#readme",
+  "dependencies": {
+    "@alch/alchemy-web3": "^1.1.9",
+    "axios": "^0.25.0"
+  }
+}
