@@ -11,7 +11,7 @@ const registry = new web3.eth.Contract(
     process.env.REGISTRY_ADDRESS || '0x3E30b138ecc85cD89210e1A19a8603544A917372')
 
 async function main() {
-    const graphUrl = process.env.GRAPH_URL || 'https://api.thegraph.com/subgraphs/name/centfinance/cent-swap-celo'
+    const graphUrl = process.env.GRAPH_URL || 'https://api.thegraph.com/subgraphs/name/centfinance/symmetricv1celo'
     const response = await axios.post(graphUrl, {
         query: `{
             pools(
