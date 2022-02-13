@@ -1,6 +1,8 @@
 const { createAlchemyWeb3 } = require('@alch/alchemy-web3')
 const axios = require('axios')
 
+// CELO: wss://forno.celo.org/ws
+// XDAI: wss://rpc.gnosischain.com/wss
 const web3 = createAlchemyWeb3(
     process.env.RPC_URL || 'wss://forno.celo.org/ws',
     {retryInterval: 50, retryJitter: 0, maxRetries: 20}
@@ -116,12 +118,12 @@ async function main() {
         // sort the pool with pruning
         const encodedData = registry.methods.sortPools(
             allTokens, // all possible tokens
-            512 // sort limit
+            100 // sort limit
         ).encodeABI()
         const signedTx = await web3.eth.accounts.signTransaction({
             from: fromAddress,
             to: registry._address,
-            gas: 1000 * 1000, // sort all pools can take more gas
+            gas: 10 * 1000 * 1000, // sort all pools can take more gas
             gasPrice: process.env.GAS_PRICE || 100000000,
             nonce: nonce++,
             data: encodedData
