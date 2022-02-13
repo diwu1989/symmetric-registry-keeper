@@ -6,11 +6,15 @@ const web3 = createAlchemyWeb3(
     {retryInterval: 50, retryJitter: 0, maxRetries: 20}
 )
 
+// CELO: 0x3E30b138ecc85cD89210e1A19a8603544A917372
+// XDAI: 0x8BB44cF81A7E263A0b0234Bf4Dd72482a88AFeCf
 const registry = new web3.eth.Contract(
     require('./abi/BRegistry.json'),
     process.env.REGISTRY_ADDRESS || '0x3E30b138ecc85cD89210e1A19a8603544A917372')
 
 async function main() {
+    // CELO: https://api.thegraph.com/subgraphs/name/centfinance/symmetricv1celo
+    // XDAI: https://api.thegraph.com/subgraphs/name/centfinance/symmetric-xdai
     const graphUrl = process.env.GRAPH_URL || 'https://api.thegraph.com/subgraphs/name/centfinance/symmetricv1celo'
     const response = await axios.post(graphUrl, {
         query: `{
