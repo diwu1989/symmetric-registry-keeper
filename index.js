@@ -118,12 +118,12 @@ async function main() {
         // sort the pool with pruning
         const encodedData = registry.methods.sortPools(
             allTokens, // all possible tokens
-            100 // sort limit
+            10 // sort limit
         ).encodeABI()
         const signedTx = await web3.eth.accounts.signTransaction({
             from: fromAddress,
             to: registry._address,
-            gas: 10 * 1000 * 1000, // sort all pools can take more gas
+            gas: 15 * 1000 * 1000, // sort all pools can take more gas
             gasPrice: process.env.GAS_PRICE || 100000000,
             nonce: nonce++,
             data: encodedData
